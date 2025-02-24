@@ -7,6 +7,24 @@ const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
 
+  const handleNavClick = (id, title) => {
+    setActive(title);
+    setToggle(false);
+
+    let element;
+    if (id === "contact") {
+      element = document.querySelector("footer");
+    } else if (id === "work") {
+      element = document.querySelector("#experience");
+    } else {
+      element = document.querySelector(`#${id}`);
+    }
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-2 fixed top-0 z-20 backdrop-blur-md bg-white/70 shadow-sm`}
@@ -32,9 +50,9 @@ const Navbar = () => {
                 active === nav.title ? "text-blue-600" : "text-gray-800"
               } hover:text-blue-400 text-lg font-medium 
                 uppercase tracking-[3px] cursor-pointer transition-colors`}
-              onClick={() => setActive(nav.title)}
+              onClick={() => handleNavClick(nav.id, nav.title)}
             >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+              <span>{nav.title}</span>
             </li>
           ))}
         </ul>
@@ -112,12 +130,9 @@ const Navbar = () => {
                   className={`${
                     active === nav.title ? "text-blue-600" : "text-gray-800"
                   } text-4xl font-medium uppercase tracking-wider cursor-pointer`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
+                  onClick={() => handleNavClick(nav.id, nav.title)}
                 >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
+                  <span>{nav.title}</span>
                 </li>
               ))}
             </ul>

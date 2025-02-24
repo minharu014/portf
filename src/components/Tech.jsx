@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { textVariant, fadeIn, staggerContainer } from "../utils/motion";
 import { technologies } from "../constants";
+import GridDistortion from "./GridDistortion";
 
 // Import all tech icons
 import reactIcon from "../assets/tech/reactjs.png";
@@ -44,7 +45,7 @@ const TechCard = ({ name, icon, index }) => {
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           className="w-20 h-20 rounded-full bg-white/5 backdrop-blur-lg flex items-center justify-center
-            shadow-card relative overflow-hidden"
+            shadow-card relative overflow-hidden border border-white/20"
         >
           {/* Gradient overlay */}
           <div
@@ -87,9 +88,23 @@ const TechCard = ({ name, icon, index }) => {
 const Tech = () => {
   return (
     <div className="bg-gray-900 w-full relative z-0">
+      {/* Grid Distortion Background */}
+      <div className="absolute inset-0 z-0 pointer-events-auto">
+        <GridDistortion
+          imageSrc="https://picsum.photos/1920/1080?grayscale"
+          grid={10}
+          mouse={0.2}
+          strength={0.15}
+          relaxation={0.9}
+        />
+      </div>
+
+      {/* Update the overlay to allow pointer events */}
+      <div className="absolute inset-0 bg-gray-900/70 z-[1] pointer-events-none" />
+
       {/* Cooler shadow transition */}
-      <div className="absolute top-0 inset-x-0">
-        <div className="h-24 bg-gradient-to-b from-white/80 via-gray-400/20 to-gray-900 opacity-40" />
+      <div className="absolute top-0 inset-x-0 z-[2]">
+        <div className="h-24 bg-gradient-to-b from-white/80 via-gray-400/20 to-transparent opacity-40" />
         <div className="h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
       </div>
 
@@ -98,7 +113,7 @@ const Tech = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="max-w-7xl mx-auto px-4 py-20 relative"
+        className="max-w-7xl mx-auto px-4 py-20 relative z-[3]"
       >
         <motion.div variants={textVariant()}>
           <p className={`${styles.sectionSubText} text-center text-white`}>

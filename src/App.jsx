@@ -4,6 +4,8 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Tech from "./components/Tech";
 import Project from "./components/Project";
+import Experience from "./components/Experience";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <About />
         <Tech />
         <Project />
+        <Experience />
+        <Footer />
       </div>
     </BrowserRouter>
   );

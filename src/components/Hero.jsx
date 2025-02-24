@@ -5,6 +5,7 @@ import { navLinks } from "../constants";
 import me from "../assets/me/me2.png";
 import whiteAbstract from "../assets/background/white-abstract.png";
 import { fadeIn, slideIn, staggerContainer } from "../utils/motion";
+import TrueFocus from "./TrueFocus";
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -82,7 +83,14 @@ const Hero = () => {
               variants={fadeIn("right", "tween", 0.4, 1)}
               className={`${styles.heroSubText} mt-2 max-w-[600px]`}
             >
-              Full Stack Developer
+              <TrueFocus
+                sentence="Full Stack Developer"
+                manualMode={false}
+                blurAmount={3}
+                borderColor="#0047b3"
+                animationDuration={1.5}
+                pauseBetweenAnimations={1}
+              />
               <br className="sm:block hidden" />
             </motion.p>
           </div>
