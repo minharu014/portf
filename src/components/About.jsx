@@ -7,7 +7,7 @@ import backend from "../assets/icons/backend.png";
 import frontend from "../assets/icons/frontend.png";
 import ux from "../assets/icons/ux.png";
 import ShinyText from "./ShinyText";
-import whiteEmail from "../assets/me/whiteEmail.png";
+import whiteEmail from "../assets/me/whiteEmail2.png";
 
 const iconMap = {
   "backend.png": backend,
@@ -91,14 +91,14 @@ const About = () => {
           className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
           I express my creativity through programming, building cool backend
-          solutions and eye-catching web apps. I enjoy using React, JavaScript,
+          solutions and some pretty web apps. I enjoy using React, JavaScript,
           Next.js, Python, and TailwindCSS. <br />
           Every day, I explore the latest tech news to stay up-to-date and don't
           fall behind!
           <br />
           <br />I speak Swedish, English & Korean
           <br />
-          Contact for resume
+          Contact for resume :)
         </motion.p>
 
         {/* Contact Links */}
@@ -126,7 +126,7 @@ const About = () => {
             <img
               src={whiteEmail}
               alt="email"
-              className="h-16 object-contain hover:opacity-80 transition-opacity"
+              className="h-12 object-contain opacity-50 hover:opacity-100 transition-opacity"
             />
           </div>
 

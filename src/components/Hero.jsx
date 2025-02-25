@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import me from "../assets/me/me2.png";
+import me from "../assets/me/round.png";
 import whiteAbstract from "../assets/background/white-abstract.png";
 import { fadeIn, slideIn, staggerContainer } from "../utils/motion";
 import TrueFocus from "./TrueFocus";
@@ -74,8 +74,8 @@ const Hero = () => {
             >
               Hello I am
               <br />
-              <span className="relative text-blue-600 sm:text-[70px] text-[40px] font-bold uppercase block mt-4">
-                <span className="relative z-[1]">HT</span>
+              <span className="relative text-blue-600 sm:text-[70px] text-[40px] font-bold block mt-4">
+                <span className="relative z-[1]">Haru Tran</span>
                 <span className="absolute inset-0 rounded-lg transform -skew-x-12 translate-x-2 translate-y-2" />
               </span>
             </motion.h1>
@@ -84,11 +84,11 @@ const Hero = () => {
               className={`${styles.heroSubText} mt-2 max-w-[600px]`}
             >
               <TrueFocus
-                sentence="Full Stack Developer"
+                sentence="Full-Stack Developer"
                 manualMode={false}
-                blurAmount={3}
+                blurAmount={2}
                 borderColor="#0047b3"
-                animationDuration={1.5}
+                animationDuration={1.2}
                 pauseBetweenAnimations={1}
               />
               <br className="sm:block hidden" />

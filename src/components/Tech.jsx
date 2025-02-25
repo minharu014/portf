@@ -89,7 +89,7 @@ const Tech = () => {
   return (
     <div className="bg-gray-900 w-full relative z-0">
       {/* Grid Distortion Background */}
-      <div className="absolute inset-0 z-0 pointer-events-auto">
+      <div className="absolute inset-0 z-[1]">
         <GridDistortion
           imageSrc="https://picsum.photos/1920/1080?grayscale"
           grid={10}
@@ -99,15 +99,10 @@ const Tech = () => {
         />
       </div>
 
-      {/* Update the overlay to allow pointer events */}
-      <div className="absolute inset-0 bg-gray-900/70 z-[1] pointer-events-none" />
+      {/* Update the overlay to be between the distortion and content */}
+      <div className="absolute inset-0 bg-gray-900/70 z-[2]" />
 
-      {/* Cooler shadow transition */}
-      <div className="absolute top-0 inset-x-0 z-[2]">
-        <div className="h-24 bg-gradient-to-b from-white/80 via-gray-400/20 to-transparent opacity-40" />
-        <div className="h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-      </div>
-
+      {/* Move the content to the top layer */}
       <motion.div
         variants={staggerContainer()}
         initial="hidden"
