@@ -61,7 +61,7 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 
 ## 📸 Screenshots
 
-[Add some screenshots of your portfolio here]
+maybe later
 
 ## 📝 License
 
