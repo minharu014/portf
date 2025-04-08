@@ -137,7 +137,7 @@ const Tech = () => {
                 href="https://github.com/minharu014"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white border-b-2 border-white/10 hover:border-white/50 transition-colors duration-300"
+                className="text-white hover:text-blue-900 border-b-3 border-blue-900/50 hover:border-white/50 transition-colors duration-300"
               >
                 GitHub / minharu014
               </a>
