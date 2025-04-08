@@ -3,6 +3,7 @@ import { styles } from "../styles";
 import { textVariant, fadeIn, staggerContainer } from "../utils/motion";
 import { technologies } from "../constants";
 import GridDistortion from "./GridDistortion";
+import GitHubCalendar from "react-github-calendar";
 
 // Import all tech icons
 import reactIcon from "../assets/tech/reactjs.png";
@@ -123,6 +124,53 @@ const Tech = () => {
           {technologies.map((technology, index) => (
             <TechCard key={technology.name} index={index} {...technology} />
           ))}
+        </motion.div>
+
+        {/*  GitHub Activity  */}
+        <motion.div
+          variants={fadeIn("up", "spring", 1.0, 1)}
+          className="mt-24 flex justify-center"
+        >
+          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-xl">
+            <h3 className="text-white text-xl font-medium mb-4 text-center">
+              <a
+                href="https://github.com/minharu014"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white border-b-2 border-white/10 hover:border-white/50 transition-colors duration-300"
+              >
+                GitHub / minharu014
+              </a>
+            </h3>
+
+            <GitHubCalendar
+              username="minharu014"
+              colorScheme="dark"
+              blockSize={13}
+              blockMargin={3}
+              fontSize={10}
+              hideColorLegend={true}
+              weekStart={1}
+              showWeekdayLabels={[
+                "mon",
+                "tue",
+                "wed",
+                "thu",
+                "fri",
+                "sat",
+                "sun",
+              ]}
+              style={{
+                borderRadius: "0.5rem",
+                padding: "1rem",
+                background: "rgba(255, 255,255, 0.20)",
+                color: "white",
+              }}
+            />
+            <p className="text-white text-sm text-center mt-4">
+              I do laundry on sundays
+            </p>
+          </div>
         </motion.div>
       </motion.div>
     </div>
