@@ -87,7 +87,7 @@ const Hero = () => {
             </h1>
             <p className={`${styles.heroSubText} mt-2 max-w-[600px]`}>
               <TrueFocus
-                sentence="Full-Stack Developer"
+                sentence="Software Engineer"
                 manualMode={false}
                 blurAmount={2}
                 borderColor="#0047b3"

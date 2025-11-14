@@ -9,16 +9,16 @@ const AnimatedItem = ({
   onClick,
 }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.5, triggerOnce: false });
+  const inView = useInView(ref, { amount: 0.1, triggerOnce: true });
   return (
     <motion.div
       ref={ref}
       data-index={index}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
-      initial={{ scale: 0.7, opacity: 0 }}
-      animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.7, opacity: 0 }}
-      transition={{ duration: 0.2, delay }}
+      initial={{ scale: 0.9, opacity: 0, y: 20 }}
+      animate={inView ? { scale: 1, opacity: 1, y: 0 } : { scale: 0.9, opacity: 0, y: 20 }}
+      transition={{ duration: 0.3, delay }}
       className="mb-4 cursor-pointer"
     >
       {children}
@@ -125,21 +125,23 @@ const AnimatedList = ({
     <div className={`relative w-[800px] ${className}`}>
       <div
         ref={listRef}
-        className={`max-h-[800px] overflow-y-auto p-4 ${
+        className={`${
+          displayScrollbar ? "max-h-[800px] overflow-y-auto" : ""
+        } p-4 ${
           displayScrollbar
             ? "[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-track]:bg-[#060606] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-thumb]:rounded-[4px]"
             : "scrollbar-hide"
         }`}
-        onScroll={handleScroll}
+        onScroll={displayScrollbar ? handleScroll : undefined}
         style={{
-          scrollbarWidth: "thin",
-          scrollbarColor: "#222 #060606",
+          scrollbarWidth: displayScrollbar ? "thin" : "none",
+          scrollbarColor: displayScrollbar ? "#222 #060606" : "transparent",
         }}
       >
         {items.map((item, index) => (
           <AnimatedItem
             key={index}
-            delay={0.1}
+            delay={index * 0.05}
             index={index}
             onMouseEnter={() => setSelectedIndex(index)}
             onClick={() => {

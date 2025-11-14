@@ -80,9 +80,9 @@ const Experience = () => {
         <div className="mt-20 flex justify-center">
           <AnimatedList
             items={formattedItems}
-            showGradients={true}
-            enableArrowNavigation={true}
-            displayScrollbar={true}
+            showGradients={false}
+            enableArrowNavigation={false}
+            displayScrollbar={false}
             className="w-full max-w-[1000px]"
             itemClassName="hover:bg-[#222] transition-colors duration-300"
           />

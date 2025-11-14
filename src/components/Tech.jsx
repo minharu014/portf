@@ -5,7 +5,7 @@ import { technologies } from "../constants";
 import GridDistortion from "./GridDistortion";
 import GitHubCalendar from "react-github-calendar";
 
-// Import all tech icons
+// Import all tech icons (PNG)
 import reactIcon from "../assets/tech/reactjs.png";
 import javascriptIcon from "../assets/tech/javascript.png";
 import typescriptIcon from "../assets/tech/typescript.png";
@@ -18,6 +18,13 @@ import cssIcon from "../assets/tech/css.png";
 import dockerIcon from "../assets/tech/docker.png";
 import nextjsIcon from "../assets/tech/nextjs.png";
 import threejsIcon from "../assets/tech/threejs.png";
+
+// Import SVG icons
+import yoloIcon from "../assets/icons/yolo.svg";
+import kubernetesIcon from "../assets/icons/kubernetes.svg";
+import openshiftIcon from "../assets/icons/redhatopenshift.svg";
+import mysqlIcon from "../assets/icons/mysql.svg";
+import mongodbIcon from "../assets/icons/mongodb.svg";
 
 // Create an icon map
 const iconMap = {
@@ -33,9 +40,17 @@ const iconMap = {
   "docker.png": dockerIcon,
   "nextjs.png": nextjsIcon,
   "threejs.png": threejsIcon,
+  "yolo.svg": yoloIcon,
+  "kubernetes.svg": kubernetesIcon,
+  "redhatopenshift.svg": openshiftIcon,
+  "mysql.svg": mysqlIcon,
+  "mongodb.svg": mongodbIcon,
 };
 
 const TechCard = ({ name, icon, index }) => {
+  const iconSrc = iconMap[icon];
+  const hasIcon = icon && iconSrc;
+
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.15, 0.75)}
@@ -54,12 +69,21 @@ const TechCard = ({ name, icon, index }) => {
             group-hover:opacity-100 transition-opacity duration-500"
           />
 
-          <img
-            src={iconMap[icon]}
-            alt={name}
-            className="w-12 h-12 object-contain filter brightness-0 invert opacity-70
-              group-hover:opacity-100 transition-all duration-300 relative z-10"
-          />
+          {hasIcon ? (
+            <img
+              src={iconSrc}
+              alt={name}
+              className="w-12 h-12 object-contain filter brightness-0 invert opacity-70
+                group-hover:opacity-100 transition-all duration-300 relative z-10"
+            />
+          ) : (
+            <span
+              className="text-white/70 text-xs font-bold text-center px-2 leading-tight
+                group-hover:text-white transition-all duration-300 relative z-10"
+            >
+              {name}
+            </span>
+          )}
         </motion.div>
         <div className="absolute -bottom-8 flex items-center justify-center">
           <motion.span
