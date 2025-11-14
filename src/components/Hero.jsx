@@ -36,9 +36,6 @@ const Hero = () => {
       <div className="fixed top-0 left-0 z-0 h-screen w-full">
         <motion.div
           style={{ y, scale }}
-          initial={{ scale: 1.4 }}
-          animate={{ scale: 1.1 }}
-          transition={{ duration: 1.5 }}
           className="absolute inset-0 h-[120vh] w-full"
         >
           <motion.img
@@ -54,12 +51,7 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        initial="hidden"
-        animate="show"
-        className="absolute right-0 top-0 h-screen w-screen z-[1] overflow-hidden"
-      >
+      <div className="absolute right-0 top-0 h-screen w-screen z-[1] overflow-hidden animate-fade-in-right">
         <img
           className="absolute right-0 bottom-0 
           w-4/5 sm:w-auto
@@ -69,18 +61,15 @@ const Hero = () => {
           src={me}
           alt="ht"
         />
-      </motion.div>
+      </div>
 
       <section
         className={`relative ${styles.flexStart} w-full min-h-screen mx-auto overflow-hidden z-[2]`}
       >
-        <motion.div
-          variants={staggerContainer()}
-          initial="hidden"
-          animate="show"
+        <div
           className={`absolute inset-0 sm:top-[180px] top-[120px] 
           lg:top-[120px] xl:top-[150px] ${styles.paddingX} 
-          ${styles.innerWidth} mx-auto ${styles.flexStart}`}
+          ${styles.innerWidth} mx-auto ${styles.flexStart} animate-fade-in-up`}
         >
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="w-5 h-5 rounded-full bg-blue-600 sm:hidden" />
@@ -88,21 +77,15 @@ const Hero = () => {
           </div>
 
           <div className="ml-4 sm:ml-8">
-            <motion.h1
-              variants={fadeIn("right", "tween", 0.2, 1)}
-              className={`${styles.heroHeadText} font-poppins uppercase`}
-            >
+            <h1 className={`${styles.heroHeadText} font-poppins uppercase`}>
               Hello I am
               <br />
               <span className="relative text-blue-600 sm:text-[70px] text-[40px] font-bold block mt-4">
                 <span className="relative z-[1]">Haru Tran</span>
                 <span className="absolute inset-0 rounded-lg transform -skew-x-12 translate-x-2 translate-y-2" />
               </span>
-            </motion.h1>
-            <motion.p
-              variants={fadeIn("right", "tween", 0.4, 1)}
-              className={`${styles.heroSubText} mt-2 max-w-[600px]`}
-            >
+            </h1>
+            <p className={`${styles.heroSubText} mt-2 max-w-[600px]`}>
               <TrueFocus
                 sentence="Full-Stack Developer"
                 manualMode={false}
@@ -112,40 +95,29 @@ const Hero = () => {
                 pauseBetweenAnimations={1}
               />
               <br className="sm:block hidden" />
-            </motion.p>
+            </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* About Card - Positioned in Hero */}
-        <div className="hidden lg:block absolute bottom-8 left-8 z-[3] w-96">
-          <motion.div
-            variants={staggerContainer()}
-            initial="hidden"
-            animate="show"
-            className="bg-white/95 backdrop-blur-md rounded-xl shadow-xl p-6 border border-white/20"
-          >
-            <motion.div variants={textVariant()}>
+        <div className="hidden lg:block absolute bottom-8 left-8 z-[3] w-96 animate-fade-in-left">
+          <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-xl p-6 border border-white/20">
+            <div>
               <p className="text-gray-600 text-sm font-medium">Introduction</p>
               <h2 className="text-xl font-bold text-gray-900 mt-1">
                 Overview.
               </h2>
-            </motion.div>
+            </div>
 
-            <motion.p
-              variants={fadeIn("", "", 0.1, 1)}
-              className="mt-3 text-gray-700 text-sm leading-relaxed"
-            >
+            <p className="mt-3 text-gray-700 text-sm leading-relaxed">
               Specialized in COMPUTER VISION AI/ML + REACT
               <br />I express my creativity through programming, building cool
-              backend solutions and some pretty web apps.
+              backend solutions and fine web apps.
               <br />I speak Swedish, English & Korean
-            </motion.p>
+            </p>
 
             {/* Contact Links - Email on its own line */}
-            <motion.div
-              variants={fadeIn("up", "spring", 0.3, 1)}
-              className="mt-3"
-            >
+            <div className="mt-3">
               {/* Email - Full width with white email image */}
               <div className="flex items-center rounded">
                 <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
@@ -215,15 +187,15 @@ const Hero = () => {
                 </a>
               </div>
               <hr className="opacity-20"></hr>
-            </motion.div>
+            </div>
 
             {/* Service Icons with Text - Smaller cards */}
             <div className="mt-1 grid grid-cols-2 gap-2">
               {services.slice(0, 4).map((service, index) => (
-                <motion.div
+                <div
                   key={service.title}
-                  variants={fadeIn("right", "spring", index * 0.1, 0.75)}
                   className="flex flex-col items-center gap-0 p-1"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <img
                     src={iconMap[service.icon] || iconMap["frontend.png"]}
@@ -233,17 +205,14 @@ const Hero = () => {
                   <span className="text-[10px] font-medium text-gray-600 text-center leading-tight">
                     {service.title}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          variants={fadeIn("up", "tween", 0.8, 1)}
-          initial="hidden"
-          animate="show"
-          className={`absolute xs:bottom-2 bottom-10 w-full ${styles.flexCenter}`}
+        <div
+          className={`absolute xs:bottom-2 bottom-10 w-full ${styles.flexCenter} animate-fade-in-up`}
         >
           <a href="#about">
             <div className="w-[25px] h-[45px] rounded-2xl border-3 border-gray-700 flex justify-center items-start p-1">
@@ -260,7 +229,7 @@ const Hero = () => {
               />
             </div>
           </a>
-        </motion.div>
+        </div>
       </section>
     </>
   );

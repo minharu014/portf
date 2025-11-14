@@ -11,6 +11,11 @@ const Navbar = () => {
     setActive(title);
     setToggle(false);
 
+    if (id === "about") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     let element;
     if (id === "contact") {
       element = document.querySelector("footer");

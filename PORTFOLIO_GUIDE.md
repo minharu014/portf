@@ -29,11 +29,38 @@ Open `src/data/portfolio.json` and add to the `projects` array:
     }
   ],
   "image": "https://example.com/image.jpg",
+  "youtube": "",
   "github": "https://github.com/username/repo",
   "demo": "https://demo-url.com",
   "featured": true
 }
 ```
+
+### 🎥 **YouTube Video Support**
+
+You can now use YouTube videos instead of images for your projects! Simply add a YouTube URL to the `youtube` field:
+
+```json
+{
+  "id": "video-project",
+  "name": "My Video Project",
+  "description": "A project showcased with a YouTube video",
+  "tags": [{ "name": "React", "color": "text-blue-500" }],
+  "image": "",
+  "youtube": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "github": "https://github.com/username/repo",
+  "demo": "",
+  "featured": true
+}
+```
+
+**Supported YouTube URL formats:**
+
+- `https://www.youtube.com/watch?v=VIDEO_ID`
+- `https://youtu.be/VIDEO_ID`
+- `https://www.youtube.com/embed/VIDEO_ID`
+
+💡 **Tip:** Leave `youtube` empty (`""`) to use an image instead.
 
 ### Adding New Experiences
 

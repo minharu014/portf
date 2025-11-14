@@ -29,7 +29,24 @@ async function addProject() {
 
   const name = await question("Project name: ");
   const description = await question("Project description: ");
-  const image = await question("Project image URL: ");
+
+  console.log("\n📺 Choose media type:");
+  console.log("1. Image URL");
+  console.log("2. YouTube video");
+  const mediaType = await question("Media type (1 or 2): ");
+
+  let image = "";
+  let youtube = "";
+
+  if (mediaType === "2") {
+    youtube = await question("YouTube video URL: ");
+    console.log(
+      "💡 Tip: You can use any YouTube URL format (watch?v=, youtu.be/, etc.)"
+    );
+  } else {
+    image = await question("Project image URL: ");
+  }
+
   const github = await question("GitHub repository URL (optional): ");
   const demo = await question("Live demo URL (optional): ");
   const featured = await question("Is this a featured project? (y/N): ");
@@ -58,6 +75,7 @@ async function addProject() {
     description,
     tags,
     image,
+    youtube,
     github: github || "",
     demo: demo || "",
     featured: featured.toLowerCase().startsWith("y"),

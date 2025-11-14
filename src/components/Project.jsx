@@ -4,10 +4,22 @@ import { projects } from "../constants";
 import { fadeIn, textVariant, staggerContainer } from "../utils/motion";
 import Squares from "./Squares";
 
-const ProjectCard = ({ index, name, description, tags, image }) => {
+// Helper function to extract YouTube video ID from URL
+const getYouTubeVideoId = (url) => {
+  if (!url) return null;
+  const regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
+const ProjectCard = ({ index, name, description, tags, image, youtube }) => {
+  const videoId = getYouTubeVideoId(youtube);
+  const hasVideo = !!videoId;
+
   return (
     <motion.div
-      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      variants={fadeIn("up", "spring", index * 0.1, 0.75)}
       className="w-full sm:w-[360px]"
     >
       <div
@@ -17,36 +29,51 @@ const ProjectCard = ({ index, name, description, tags, image }) => {
         before:to-purple-500/5 before:opacity-0 before:transition-opacity before:duration-500
         hover:before:opacity-100"
       >
-        {/* Card content container */}
+        {/* Media container - Video or Image */}
         <div className="relative w-full h-[200px] rounded-t-2xl overflow-hidden">
-          {/* Project image with stronger overlay */}
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-gray-900/40 
-            group-hover:opacity-0 transition-all duration-700 ease-out z-[2]"
-          />
-          <div className="absolute inset-0 bg-black/20 z-[1]" />
-          <motion.div
-            className="w-full h-full"
-            whileHover={{
-              scale: 1.15,
-              transition: {
-                type: "spring",
-                stiffness: 160,
-                damping: 30,
-                mass: 1.2,
-                velocity: 2,
-              },
-            }}
-            initial={{ scale: 1 }}
-            animate={{ scale: 1 }}
-          >
-            <img
-              src={image}
-              alt={name}
-              className="w-full h-full object-cover filter brightness-[0.9] contrast-[0.95] 
-                saturate-[0.85] [&]:grayscale-[15%]"
-            />
-          </motion.div>
+          {hasVideo ? (
+            /* YouTube Video Embed */
+            <div className="w-full h-full">
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1`}
+                title={name}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : (
+            /* Regular Image */
+            <>
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-blue-800/30 to-gray-400/10 
+                group-hover:opacity-0 transition-all duration-700 ease-out z-[2]"
+              />
+              <div className="absolute inset-0 bg-black/20 z-[1]" />
+              <motion.div
+                className="w-full h-full"
+                whileHover={{
+                  scale: 1.15,
+                  transition: {
+                    type: "spring",
+                    stiffness: 160,
+                    damping: 30,
+                    mass: 1.2,
+                    velocity: 2,
+                  },
+                }}
+                initial={{ scale: 1 }}
+                animate={{ scale: 1 }}
+              >
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-full h-full object-cover filter brightness-[0.9] contrast-[0.95] 
+                    saturate-[0.85] [&]:grayscale-[15%]"
+                />
+              </motion.div>
+            </>
+          )}
         </div>
 
         {/* Project info */}
@@ -57,7 +84,7 @@ const ProjectCard = ({ index, name, description, tags, image }) => {
           <h3 className="text-gray-900 font-bold text-[24px] group-hover:text-blue-600 transition-colors duration-300">
             {name}
           </h3>
-          <p className="mt-2 text-gray-600 text-[14px] leading-[1.6] flex-1">
+          <p className="mt-1 text-gray-600 text-[14px] leading-[1.6] flex-1">
             {description}
           </p>
 
@@ -122,7 +149,15 @@ const Project = () => {
 
         <div className="mt-20 flex flex-wrap gap-7 justify-center">
           {projects.map((project, index) => (
-            <ProjectCard key={`project-${index}`} index={index} {...project} />
+            <ProjectCard
+              key={`project-${index}`}
+              index={index}
+              name={project.name}
+              description={project.description}
+              tags={project.tags}
+              image={project.image}
+              youtube={project.youtube}
+            />
           ))}
         </div>
       </motion.div>
