@@ -88,14 +88,14 @@ const ProjectCard = ({ index, name, description, tags, image }) => {
 
 const Project = () => {
   return (
-    <div id="projects" className="w-full relative z-0 bg-[#060606]">
+    <div id="projects" className="w-full relative z-0 bg-[#41415fb4]">
       {/* Squares Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Squares
           speed={0.5}
           squareSize={40}
           direction="diagonal"
-          borderColor="#262626"
+          borderColor="#a0a0a7b4"
           hoverFillColor="#fff"
         />
       </div>

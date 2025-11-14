@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-
 const Squares = ({
   direction = "right",
   speed = 1,
