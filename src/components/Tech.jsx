@@ -153,10 +153,10 @@ const Tech = () => {
         {/*  GitHub Activity  */}
         <motion.div
           variants={fadeIn("up", "spring", 1.0, 1)}
-          className="mt-24 flex justify-center"
+          className="mt-18 flex justify-center px-2 sm:px-0"
         >
-          <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-xl">
-            <h3 className="text-white text-xl font-medium mb-4 text-center">
+          <div className="bg-white/5 backdrop-blur-sm p-2 sm:p-2 rounded-lg border border-white/10 shadow-xl w-full max-w-5xl overflow-hidden">
+            <h3 className="text-white text-lg sm:text-xl font-medium mb-4 text-center">
               <a
                 href="https://github.com/minharu014"
                 target="_blank"
@@ -167,31 +167,34 @@ const Tech = () => {
               </a>
             </h3>
 
-            <GitHubCalendar
-              username="minharu014"
-              colorScheme="dark"
-              blockSize={13}
-              blockMargin={3}
-              fontSize={10}
-              hideColorLegend={true}
-              weekStart={1}
-              showWeekdayLabels={[
-                "mon",
-                "tue",
-                "wed",
-                "thu",
-                "fri",
-                "sat",
-                "sun",
-              ]}
-              style={{
-                borderRadius: "0.5rem",
-                padding: "1rem",
-                background: "rgba(255, 255,255, 0.20)",
-                color: "white",
-              }}
-            />
-            <p className="text-white text-sm text-center mt-4">
+            <div className="overflow-x-auto flex justify-center">
+              <GitHubCalendar
+                username="minharu014"
+                colorScheme="dark"
+                blockSize={13}
+                blockMargin={3}
+                fontSize={10}
+                hideColorLegend={true}
+                weekStart={1}
+                showWeekdayLabels={[
+                  "mon",
+                  "tue",
+                  "wed",
+                  "thu",
+                  "fri",
+                  "sat",
+                  "sun",
+                ]}
+                style={{
+                  borderRadius: "0.5rem",
+                  padding: "1rem",
+                  background: "rgba(255, 255,255, 0.20)",
+                  color: "white",
+                  minWidth: "320px",
+                }}
+              />
+            </div>
+            <p className="text-white text-xs sm:text-sm text-center mt-4">
               I do laundry on sundays
             </p>
           </div>

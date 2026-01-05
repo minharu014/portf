@@ -17,7 +17,11 @@ const AnimatedItem = ({
       onMouseEnter={onMouseEnter}
       onClick={onClick}
       initial={{ scale: 0.9, opacity: 0, y: 20 }}
-      animate={inView ? { scale: 1, opacity: 1, y: 0 } : { scale: 0.9, opacity: 0, y: 20 }}
+      animate={
+        inView
+          ? { scale: 1, opacity: 1, y: 0 }
+          : { scale: 0.9, opacity: 0, y: 20 }
+      }
       transition={{ duration: 0.3, delay }}
       className="mb-4 cursor-pointer"
     >

@@ -77,14 +77,14 @@ const ProjectCard = ({ index, name, description, tags, image, youtube }) => {
         </div>
 
         {/* Project info */}
-        <div className="p-6 bg-transparent backdrop-blur-[2px] flex-1 flex flex-col relative">
+        <div className="p-2.5 bg-transparent backdrop-blur-[2px] flex-1 flex flex-col relative">
           {/* Subtle gradient border */}
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
 
-          <h3 className="text-gray-900 font-bold text-[24px] group-hover:text-blue-600 transition-colors duration-300">
+          <h3 className="text-gray-900 font-bold text-[18px] group-hover:text-blue-600 transition-colors duration-300">
             {name}
           </h3>
-          <p className="mt-1 text-gray-600 text-[14px] leading-[1.6] flex-1">
+          <p className="mt-1 text-gray-600 text-[12px] leading-[1.6] flex-1">
             {description}
           </p>
 
@@ -93,11 +93,11 @@ const ProjectCard = ({ index, name, description, tags, image, youtube }) => {
             {tags.map((tag) => (
               <span
                 key={tag.name}
-                className={`text-[14px] ${tag.color} font-medium px-3 py-1 rounded-full 
+                className={`text-[10px] ${tag.color} font-medium px-1 py-1 rounded-sm 
                   bg-white/50 backdrop-blur-sm border border-gray-100/50 shadow-sm
                   hover:shadow-md transition-all duration-300`}
               >
-                #{tag.name}
+                {tag.name}
               </span>
             ))}
           </div>

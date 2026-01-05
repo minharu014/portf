@@ -31,7 +31,7 @@
       "icon": "ux.png"
     },
     {
-      "title": "Computer Visio AI/ML",
+      "title": "Computer Vision AI/ML",
       "icon": "ux.png"
     }
   ],
@@ -302,8 +302,8 @@
     },
     {
       "id": "leaflet-mapbox",
-      "name": "Leaflet / MapBox",
-      "description": "WIP Using Leaflet js to create a custom map, in this case a game",
+      "name": "Leaflet / Map Project",
+      "description": "Using Leaflet js to create a custom map, in this case a game. Finished around 2025 summer but didn't upload",
       "tags": [
         {
           "name": "React",
@@ -319,7 +319,7 @@
         }
       ],
       "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhldcICwXcotQUPNkAS-o8FEzmOS8U2QlpGF8y8KjBKAr2RNrBQLb97DUyZ8ivqrsPMMeNPt3Osywm4CO-ag-yg4GusFCNr8gT38QECAwUlH65xIYXXRDL2F2HwYeULo6T3TL8BepvHp01Mbh8JPdawSGYZ2fu0hoW7G6-fX39D58mFsD52kAmSkINC/s1920/leaflet-02-02-02.jpg",
-      "youtube": "",
+      "youtube": "https://youtu.be/7fstDNTs5Xo",
       "github": "",
       "demo": "",
       "featured": true
